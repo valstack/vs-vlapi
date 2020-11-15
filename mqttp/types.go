@@ -115,6 +115,11 @@ func NewSubscribeTopic(topic []byte, ops SubscriptionOptions) (*Topic, error) {
 	return t, nil
 }
 
+//SetFilter topic based on user authentication and context
+func (t *Topic) SetFilter(newFilter []byte) {
+	t.filter = newFilter
+	t.full = newFilter
+}
 // Full return raw topic
 func (t *Topic) Full() string {
 	return string(t.full)
